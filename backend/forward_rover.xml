@@ -1,0 +1,29 @@
+<mujoco model="worldcraft_forward_rover">
+  <compiler angle="radian"/>
+  <option timestep="0.002" gravity="0 0 -9.81"/>
+  <default>
+    <joint damping="0.02" armature="0.001"/>
+    <geom friction="0.9 0.005 0.0001" condim="3"/>
+  </default>
+  <worldbody>
+    <geom name="test_floor" type="plane" size="10 10 0.1" rgba="0.7 0.8 0.7 1"/>
+    <body name="chassis" pos="0 0 0.08">
+      <freejoint name="floating_base"/>
+      <geom name="body" type="box" pos="0 0 0.08" size="0.18 0.11 0.05" mass="1" rgba="0.2 0.5 0.7 1"/>
+      <geom name="front_caster" type="sphere" pos="0.15 0 -0.05" size="0.03" mass="0.02" friction="0.001 0.0001 0.0001"/>
+      <geom name="rear_caster" type="sphere" pos="-0.15 0 -0.05" size="0.03" mass="0.02" friction="0.001 0.0001 0.0001"/>
+      <body name="left_wheel" pos="0 0.15 0">
+        <joint name="left_drive" type="hinge" axis="0 1 0" limited="false"/>
+        <geom type="cylinder" size="0.08 0.025" quat="0.70710678 0.70710678 0 0" mass="0.1" rgba="0.15 0.15 0.15 1"/>
+      </body>
+      <body name="right_wheel" pos="0 -0.15 0">
+        <joint name="right_drive" type="hinge" axis="0 1 0" limited="false"/>
+        <geom type="cylinder" size="0.08 0.025" quat="0.70710678 0.70710678 0 0" mass="0.1" rgba="0.15 0.15 0.15 1"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <velocity name="left_motor" joint="left_drive" kv="2" ctrllimited="true" ctrlrange="0 6" forcelimited="true" forcerange="-1 1"/>
+    <velocity name="right_motor" joint="right_drive" kv="2" ctrllimited="true" ctrlrange="0 6" forcelimited="true" forcerange="-1 1"/>
+  </actuator>
+</mujoco>

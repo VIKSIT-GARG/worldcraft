@@ -1,0 +1,32 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+frontend/dist/
+*.pyc
+*.log
+data/
+
+# Private development notes and generated evidence
+/PRIVATE_PROJECT_NOTES.md
+/artifacts/
+/docs/VERIFICATION.md
+/docs/superpowers/
+/docs/*-results.json
+/docs/*-results.txt
+/docs/*-evidence.json
+/docs/frontend-build.txt
+
+# Local tooling and credential files
+.playwright-cli/
+.DS_Store
+/credentials/
+/secrets/
+application_default_credentials.json
+*service-account*.json
+*.pem
+*.key
+*.p12

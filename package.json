@@ -1,0 +1,1 @@
+{"name":"worldcraft-workspace","private":true,"scripts":{"dev":"python3 scripts/dev.py","build":"npm run build --prefix frontend"}}
